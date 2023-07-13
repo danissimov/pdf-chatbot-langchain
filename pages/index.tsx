@@ -12,8 +12,16 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from '@/components/ui/accordion';
+import { usePlaceholderValue } from '../utils/makechain';
 
 export default function Home() {
+  
+  // Add this new state for the selected option
+  const [selectedOption, setSelectedOption] = useState('Large Language Models');
+  // Array of options for the drop-down
+  const options = ['Large Language Models', 'Physics', 'Economy', 'Startups','and many more to come'];
+  
+  
   const [query, setQuery] = useState<string>('');
   const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -25,12 +33,14 @@ export default function Home() {
   }>({
     messages: [
       {
-        message: 'Hi, what would you like to learn about this document?',
+        message: 'Hi, what would you like to learn?',
         type: 'apiMessage',
       },
     ],
     history: [],
   });
+
+  const placeholderValue = usePlaceholderValue(loading);
 
   const { messages, history } = messageState;
 
@@ -123,10 +133,28 @@ export default function Home() {
   return (
     <>
       <Layout>
+        
+        
         <div className="mx-auto flex flex-col gap-4">
-          <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
-            Chat With Your Docs
-          </h1>
+                  
+        <div className="flex flex-col items-center">
+            <h1 className="text-2xl font-bold leading-[1.1] tracking-tighter text-center">
+              Talk to the expert in&nbsp;
+              {/* Drop-down menu with the selectable options */}
+              <select
+                value={selectedOption}
+                onChange={(e) => setSelectedOption(e.target.value)}
+                className="underline cursor-pointer"
+              >
+                {options.map((option) => (
+                  <option key={option} value={option}>
+                    {option}
+                  </option>
+                ))}
+              </select>
+            </h1>
+          </div>
+          
           <main className={styles.main}>
             <div className={styles.cloud}>
               <div ref={messageListRef} className={styles.messagelist}>
@@ -221,11 +249,7 @@ export default function Home() {
                     maxLength={512}
                     id="userInput"
                     name="userInput"
-                    placeholder={
-                      loading
-                        ? 'Waiting for response...'
-                        : 'What is this legal case about?'
-                    }
+                    placeholder={placeholderValue}
                     value={query}
                     onChange={(e) => setQuery(e.target.value)}
                     className={styles.textarea}
@@ -261,11 +285,14 @@ export default function Home() {
           </main>
         </div>
         <footer className="m-auto p-4">
-          <a href="https://twitter.com/mayowaoshin">
-            Powered by LangChainAI. Demo built by Mayo (Twitter: @mayowaoshin).
+          <a href="https://researchassistant.app">
+          Research Assistant. Your AI R&D co-pilot. hello@usense.me
           </a>
         </footer>
       </Layout>
     </>
   );
 }
+
+
+

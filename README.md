@@ -97,3 +97,56 @@ In general, keep an eye out in the `issues` and `discussions` section of this re
 ## Credit
 
 Frontend of this repo is inspired by [langchain-chat-nextjs](https://github.com/zahidkhawaja/langchain-chat-nextjs)
+
+
+## Project-tree 
+
+```
+pdf-chatbot-langchain // Your project root
+├─ .eslintrc.json // Configures ESLint, a tool for identifying and reporting on patterns in JavaScript/TypeScript
+├─ .git // The git repository data for your project, including history, config, and branches
+│  ├─ (and everything inside .git is part of your git version control)
+├─ .gitignore // Specifies intentionally untracked files that Git should ignore
+├─ .prettierrc // Configures Prettier, an opinionated code formatter
+├─ components // Folder containing all React components
+│  ├─ layout.tsx // Layout component used across multiple pages
+│  └─ ui // Folder for UI components
+│     ├─ accordion.tsx // Accordion UI component
+│     ├─ LoadingDots.tsx // Loading animation UI component
+│     └─ TextArea.tsx // Textarea UI component
+├─ config // Folder for project configuration files
+│  └─ pinecone.ts // Configurations for pinecone, a machine learning service
+├─ declarations // Folder for TypeScript declaration files
+│  └─ pdf-parse.d.ts // Declaration file for pdf-parse, a PDF parsing library
+├─ default // Could contain default configurations or values, need more context
+├─ docs // Folder for documentation files
+│  └─ Semantic Sholar_AI_2301.10140.pdf // A PDF document
+├─ next.config.js // Configuration for the Next.js project
+├─ package-lock.json // Describes the node package dependencies with exact versions
+├─ package.json // Lists package dependencies and provides information about the project
+├─ pages // Folder for Next.js pages
+│  ├─ api // Folder for API routes
+│  │  └─ chat.ts // API endpoint for chat functionalities
+│  ├─ index.tsx // Entry point (homepage) of the Next.js app
+│  ├─ _app.tsx // Next.js custom App component, allows shared layout across all pages
+│  └─ _document.tsx // Next.js custom Document, used to augment your application's <html> and <body> tags
+├─ postcss.config.cjs // Configures PostCSS, a tool for transforming CSS with JavaScript
+├─ public // Folder for static files that are served at the root of your Next.js app
+│  ├─ bot-image.png // Image of a bot
+│  ├─ favicon.ico // Favicon to be displayed in browser tabs
+│  ├─ logo.png // Logo image
+│  └─ usericon.png // User icon image
+├─ RAAPP.conf // Not a common file, likely a configuration file for a specific tool or service
+├─ README.md // Markdown file containing information about the project
+├─ scripts // Folder for script files
+│  └─ ingest-data.ts // Script for ingesting data
+├─ styles // Folder for style/CSS files
+│  ├─ base.css // Base styles for the project
+│  ├─ chrome-bug.css // Specific styles to address Chrome browser bugs
+│  ├─ Home.module.css // CSS Module for Home page
+│  └─ loading-dots.module.css // CSS for loading dots animation
+├─ tailwind.config.cjs // Configuration for Tailwind CSS, a utility-first CSS framework
+├─ tsconfig.json // Configuration for TypeScript project
+├─ types // Folder for custom TypeScript type definitions
+│  └─ chat.ts // TypeScript types for chat functionalities
+'''
